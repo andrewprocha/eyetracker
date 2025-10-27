@@ -1,0 +1,33 @@
+# DualEyeTracker 100 FPS Preset
+# Balanced performance for systems that can't sustain 120 FPS
+
+cameras:
+  left_id: 0
+  right_id: 1
+  width: 320
+  height: 240
+  fps: 100
+  exposure_us: 5000  # Slightly longer exposure for more light
+  backend: "dshow"
+  pixel_format: "YUY2"
+
+sync:
+  tolerance_ms: 5.0
+
+processing:
+  eyelid_exclusion_pct: 20.0
+  lash_kernel_length: 15
+  lash_kernel_thickness: 2
+  min_area: 50
+  max_area: 5000
+  min_circularity: 0.3
+  max_eccentricity: 0.95
+  min_ring_contrast: 15.0
+  morph_open_size: 3
+  morph_close_size: 5
+  border_margin: 5
+
+ui:
+  enable_display: true
+  save_telemetry: false
+  save_video: false
