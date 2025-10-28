@@ -1,0 +1,35 @@
+# DualEyeTracker Close-Up Camera Preset
+# For cameras pointed directly at the eye from 10-20cm distance
+# Use this when your camera captures ONLY the eye (not face)
+
+cameras:
+  left_id: 0
+  right_id: 1
+  width: 320
+  height: 240
+  fps: 120
+  exposure_us: 4000
+  backend: "dshow"
+  pixel_format: "YUY2"
+
+sync:
+  tolerance_ms: 5.0
+
+# Optimized for close-up eye tracking
+processing:
+  eyelid_exclusion_pct: 0.0       # No eyelid masking for close-up
+  lash_kernel_length: 15
+  lash_kernel_thickness: 2
+  min_area: 300                   # Larger pupils in close-up view
+  max_area: 8000
+  min_circularity: 0.2            # More lenient (eyelashes may distort)
+  max_eccentricity: 0.98
+  min_ring_contrast: 10.0         # Lower threshold for close-up
+  morph_open_size: 3
+  morph_close_size: 5
+  border_margin: 5
+
+ui:
+  enable_display: true
+  save_telemetry: false
+  save_video: false
